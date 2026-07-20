@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c56aae4b56ebe484b8536e6b71a15a72, type: 3}
+  m_Name: ItemDatabase_Default
+  m_EditorClassIdentifier: Assembly-CSharp::PlayMatrix.InventorySystem.ItemDatabaseSO
+  _items:
+  - {fileID: 11400000, guid: 1c60e15355fa2da4494ebaf03b62da0c, type: 2}
+  - {fileID: 11400000, guid: a365e7a84f9cce945b1be001d0b7b3fd, type: 2}
+  - {fileID: 11400000, guid: 40d34a15e06a607448f28c3cfb176c68, type: 2}
+  - {fileID: 11400000, guid: 240dd19ffd6a7b14b920005db1757db1, type: 2}
+  - {fileID: 11400000, guid: d066cf0d1ae4b7d4dbfc4a48b19d0904, type: 2}
+  - {fileID: 11400000, guid: 7befee0d50524964987ca0f25a9bb448, type: 2}
