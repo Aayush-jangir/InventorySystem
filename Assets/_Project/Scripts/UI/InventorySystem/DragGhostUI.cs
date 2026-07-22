@@ -96,9 +96,6 @@ namespace PlayMatrix.InventorySystem
 
             gameObject.SetActive(true);
             UpdatePosition(screenPosition);
-
-            gameObject.SetActive(true);
-            UpdatePosition(screenPosition);
         }
 
         /// <summary>

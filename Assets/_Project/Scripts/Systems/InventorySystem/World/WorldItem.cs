@@ -16,7 +16,6 @@ namespace PlayMatrix.InventorySystem
         [SerializeField] private float _pickupRadius = 1.2f;
         [SerializeField] private InventoryConfigSO _config;
 
-        [Header("Auto Pickup")]
         private bool _canBePickedUp = true;
         private Coroutine _cooldownCoroutine;
 

@@ -30,6 +30,8 @@ all driven by a static C# event hub and configured entirely through ScriptableOb
 | ScriptableObject Data | All item data and config lives in SOs — zero hardcoded values |
 | Object Pooling | WorldItem pool of 16 — no Instantiate/Destroy at runtime |
 | Event Architecture | Static C# event hub — all systems decoupled and independently reusable |
+| Mobile Controls | On-screen joystick for movement, BAG button to toggle inventory. Auto-shown on Android, hidden on PC and WebGL |
+| Long Press to Split | Hold finger on any stack for 0.5s on mobile to open the split popup — same as right-click on PC |
 
 ---
 
@@ -227,6 +229,8 @@ The demo scene demonstrates:
 | Split stack | Right-click any stack of 2+ → adjust slider → Confirm |
 | Drop to world | Drag any item outside the inventory panel |
 | Auto pickup | Walk the player over a world item |
+| Mobile controls | Enable Force Show In Editor on PFB_MobileControls to test joystick and BAG button in Editor |
+| Split stack (mobile) | Hold finger on any stack for 0.5s to open the split popup |
 | Rarity colors | All 5 rarities visible across the 6 demo items |
 
 ---
@@ -287,7 +291,7 @@ No paid Asset Store packages required.
 | Platform | Status | Notes |
 |---|---|---|
 | PC (Windows) | ✅ Supported | Full keyboard + mouse input |
-| Android | ✅ Supported | Touch drag-and-drop works via Unity EventSystem |
+| Android | ✅ Supported | Touch controls via OnScreenStick and OnScreenButton. Set Default Orientation to Landscape Left in Player Settings before building. |
 | WebGL | ✅ Supported | No threading used — fully WebGL-safe |
 
 ---

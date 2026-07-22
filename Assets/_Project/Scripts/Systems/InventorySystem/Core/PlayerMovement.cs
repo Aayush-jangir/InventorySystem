@@ -6,7 +6,8 @@ namespace PlayMatrix.InventorySystem
     /// <summary>
     /// Simple top-down player movement for the inventory demo scene.
     /// DEMO ONLY — not part of the reusable inventory system.
-    /// Uses the new Input System for zero-allocation keyboard reading.
+    /// Reads movement from InventoryInputActions Player/Move so that
+    /// OnScreenStick on mobile feeds in automatically — no extra wiring needed.
     /// Requires a Rigidbody2D on the same GameObject.
     /// </summary>
     [RequireComponent(typeof(Rigidbody2D))]
@@ -16,6 +17,7 @@ namespace PlayMatrix.InventorySystem
         [SerializeField] private float _moveSpeed = 4f;
 
         private Rigidbody2D _rigidbody;
+        private InventoryInputActions _inputActions;
         private Vector2 _moveInput;
 
         // ── Constants ──────────────────────────────────────────────────────
@@ -29,24 +31,28 @@ namespace PlayMatrix.InventorySystem
         {
             if (!TryGetComponent(out _rigidbody))
                 Debug.LogError(ERROR_NO_RIGIDBODY);
+
+            _inputActions = new InventoryInputActions();
+        }
+
+        private void OnEnable()
+        {
+            _inputActions.Player.Enable();
+        }
+
+        private void OnDisable()
+        {
+            _inputActions.Player.Disable();
+        }
+
+        private void OnDestroy()
+        {
+            _inputActions.Dispose();
         }
 
         private void Update()
         {
-            // Direct keyboard polling — no allocations, no events needed
-            // for a simple demo movement script
-            float x = 0f;
-            float y = 0f;
-
-            Keyboard kb = Keyboard.current;
-            if (kb == null) return;
-
-            if (kb.dKey.isPressed || kb.rightArrowKey.isPressed) x += 1f;
-            if (kb.aKey.isPressed || kb.leftArrowKey.isPressed) x -= 1f;
-            if (kb.wKey.isPressed || kb.upArrowKey.isPressed) y += 1f;
-            if (kb.sKey.isPressed || kb.downArrowKey.isPressed) y -= 1f;
-
-            _moveInput = new Vector2(x, y).normalized;
+            _moveInput = _inputActions.Player.Move.ReadValue<Vector2>();
         }
 
         private void FixedUpdate()
