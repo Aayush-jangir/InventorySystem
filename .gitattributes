@@ -169,3 +169,10 @@ Packages/packages-lock.json linguist-generated
 
 # Exceptions for .asset files such as lightning pre-baking
 LightingData.asset     binary
+
+*.asset linguist-language=YAML
+*.unity linguist-language=YAML
+*.prefab linguist-language=YAML
+*.mat linguist-language=YAML
+*.anim linguist-language=YAML
+*.meta linguist-detectable=false
